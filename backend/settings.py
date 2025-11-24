@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+from environs import Env
+env = Env()
+env.reac_env()
 
 
 
@@ -145,6 +148,9 @@ MEDIA_URL = '/media/' # 127.0.0.1/media/avatar.jpg
 MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = 'userauths.User'
+
+MAILGUN_SECRET_KEY = env("MAILGUN_SECRET_KEY")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
